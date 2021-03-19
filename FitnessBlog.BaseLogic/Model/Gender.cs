@@ -6,9 +6,26 @@ using System.Threading.Tasks;
 
 namespace FitnessBlog.BaseLogic.Model
 {
-    public enum Gender
+    public class Gender
     {
-        Male = 1,
-        Female = 2
+        /// <summary>
+        /// Название пола.
+        /// </summary>
+        public string Name { get; }
+
+        public Gender(int id)
+        {
+            switch(id)
+            {
+                case 1:
+                    Name = "Male";
+                    break;
+                case 2:
+                    Name = "Female";
+                    break;
+                default:
+                    throw new ArgumentException("Некорректный тип пола. ", nameof(Name));
+            }
+        }
     }
 }
