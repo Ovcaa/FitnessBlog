@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FitnessBlog.BaseLogic.Model
 {
+    /// <summary>
+    /// Пол.
+    /// </summary>
+    [Serializable]
     public class Gender
     {
         /// <summary>
@@ -13,6 +13,10 @@ namespace FitnessBlog.BaseLogic.Model
         /// </summary>
         public string Name { get; }
 
+        /// <summary>
+        /// Создание пола.
+        /// </summary>
+        /// <param name="id">ID пола.</param>
         public Gender(int id)
         {
             switch(id)
@@ -26,6 +30,11 @@ namespace FitnessBlog.BaseLogic.Model
                 default:
                     throw new ArgumentException("Некорректный тип пола. ", nameof(Name));
             }
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
